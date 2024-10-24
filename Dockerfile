@@ -9,7 +9,7 @@ COPY . .
 RUN chmod +x ./entrypoint.sh && \
     chmod +x ./install.sh && \
     ./install.sh && \
-    mv ./default /etc/nginx/sites-available/default && \
+    cp ./default /etc/nginx/sites-available/default && \
     ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 
