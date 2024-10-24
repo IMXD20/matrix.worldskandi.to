@@ -4,13 +4,13 @@ FROM nginx:latest
 WORKDIR /app
 
 
+COPY nginx.conf /etc/nginx/nginx.conf
+
 COPY . .
 
 RUN chmod +x ./entrypoint.sh && \
     chmod +x ./install.sh && \
-    ./install.sh && \
-    cp ./default /etc/nginx/sites-available/default && \
-    ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+    ./install.sh
 
 
 # Expose port 80 for HTTP traffic
